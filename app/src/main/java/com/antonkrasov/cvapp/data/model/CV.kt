@@ -1,3 +1,7 @@
 package com.antonkrasov.cvapp.data.model
 
-data class CV(val title: String)
+import com.google.gson.annotations.SerializedName
+
+data class CV(
+    @SerializedName("title") val title: String
+)

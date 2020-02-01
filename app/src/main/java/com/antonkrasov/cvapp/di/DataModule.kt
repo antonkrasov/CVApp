@@ -7,6 +7,7 @@ import com.antonkrasov.cvapp.data.datastore.impl.CVLocalDataStoreImpl
 import com.antonkrasov.cvapp.data.datastore.impl.CVRemoteDataStoreImpl
 import com.antonkrasov.cvapp.data.repository.CVRepository
 import com.antonkrasov.cvapp.data.repository.impl.CVRepositoryImpl
+import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -17,8 +18,15 @@ object DataModule {
     @JvmStatic
     @Singleton
     @Provides
-    fun provideCVLocalDataStore(context: Context): CVLocalDataStore {
-        return CVLocalDataStoreImpl(context)
+    fun provideGson(): Gson {
+        return Gson()
+    }
+
+    @JvmStatic
+    @Singleton
+    @Provides
+    fun provideCVLocalDataStore(context: Context, gson: Gson): CVLocalDataStore {
+        return CVLocalDataStoreImpl(context, gson)
     }
 
     @JvmStatic
