@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.antonkrasov.cvapp.data.model.CV
 import com.antonkrasov.cvapp.data.repository.CVRepository
+import io.reactivex.disposables.Disposable
 import javax.inject.Inject
 
 class CVViewModel @Inject constructor(
@@ -14,10 +15,16 @@ class CVViewModel @Inject constructor(
     private val _cv = MutableLiveData<CV>()
     val cv: LiveData<CV> = _cv
 
+    private var _cvDisposable: Disposable
+
     init {
-         val disposable = cvRepository.getCV().subscribe {
+        _cvDisposable = cvRepository.getCV().subscribe {
              _cv.value = it
          }
     }
 
+    override fun onCleared() {
+        _cvDisposable.dispose()
+        super.onCleared()
+    }
 }
