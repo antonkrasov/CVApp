@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Anton Krasov</string>
+
+    <string name="links">Links</string>
+    <string name="skills">Skills</string>
 </resources>

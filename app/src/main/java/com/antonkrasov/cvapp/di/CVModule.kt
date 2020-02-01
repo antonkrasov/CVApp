@@ -11,9 +11,11 @@ import dagger.multibindings.IntoMap
 @Module
 abstract class CVModule {
 
-    @ContributesAndroidInjector(modules = [
-        ViewModelBuilder::class
-    ])
+    @ContributesAndroidInjector(
+        modules = [
+            ViewModelBuilder::class
+        ]
+    )
     internal abstract fun cvFragment(): CVFragment
 
     @Binds

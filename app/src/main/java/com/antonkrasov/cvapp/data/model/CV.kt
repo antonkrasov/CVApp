@@ -53,14 +53,22 @@ data class Details(
     @SerializedName("location") val location: String?,
     @SerializedName("phone") val phone: String?,
     @SerializedName("email") val email: String?
-)
+) {
+    fun buildSingleString(): String? {
+        return "$location\n$phone\n$email"
+    }
+}
 
 data class DataItem(
     @SerializedName("title") val title: String?,
     @SerializedName("description") val description: String?,
     @SerializedName("start_date") val startDate: String?,
     @SerializedName("end_date") val endDate: String?
-)
+) {
+    fun buildTime(): String? {
+        return if (startDate == null || endDate == null) "" else "$startDate - $endDate"
+    }
+}
 
 data class Section(
     @SerializedName("title") val title: String?,
