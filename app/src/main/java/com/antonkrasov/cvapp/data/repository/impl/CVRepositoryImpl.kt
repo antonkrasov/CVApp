@@ -5,18 +5,19 @@ import com.antonkrasov.cvapp.data.datastore.CVLocalDataStore
 import com.antonkrasov.cvapp.data.datastore.CVRemoteDataStore
 import com.antonkrasov.cvapp.data.repository.CVRepository
 import io.reactivex.Flowable
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 
 class CVRepositoryImpl(localDataStore: CVLocalDataStore, remoteDataStore: CVRemoteDataStore) :
     CVRepository {
 
-    private val localDataStore: CVLocalDataStore
-
-    init {
-        this.localDataStore = localDataStore
-    }
+    private val _localDataStore: CVLocalDataStore = localDataStore
+    private val _remoteDataStore: CVRemoteDataStore = remoteDataStore
 
     override fun getCV(): Flowable<CV> {
-        return localDataStore.getCV()
+        return _remoteDataStore.getCV()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
     }
 
 }

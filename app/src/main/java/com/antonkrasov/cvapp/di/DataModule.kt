@@ -1,6 +1,7 @@
 package com.antonkrasov.cvapp.di
 
 import android.content.Context
+import com.antonkrasov.cvapp.data.CVApiService
 import com.antonkrasov.cvapp.data.datastore.CVLocalDataStore
 import com.antonkrasov.cvapp.data.datastore.CVRemoteDataStore
 import com.antonkrasov.cvapp.data.datastore.impl.CVLocalDataStoreImpl
@@ -32,8 +33,8 @@ object DataModule {
     @JvmStatic
     @Singleton
     @Provides
-    fun provideCVRemoteDataStore(): CVRemoteDataStore {
-        return CVRemoteDataStoreImpl()
+    fun provideCVRemoteDataStore(cvApiService: CVApiService): CVRemoteDataStore {
+        return CVRemoteDataStoreImpl(cvApiService)
     }
 
     @JvmStatic

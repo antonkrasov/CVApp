@@ -9,7 +9,8 @@ import javax.inject.Singleton
 
 @Module(
     includes = [
-        DataModule::class
+        DataModule::class,
+        NetworkModule::class
     ]
 )
 object ApplicationModule
