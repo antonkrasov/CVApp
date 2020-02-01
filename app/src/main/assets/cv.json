@@ -1,0 +1,119 @@
+{
+  "title": "Anton Krasov",
+  "subtitle": "Android & Flutter Developer",
+  "details": {
+    "location": "Vancouver, Canada",
+    "phone": "778-000-0000",
+    "email": "anton.krasov@gmail.com"
+  },
+  "links": [
+    "github.com/antonkrasov",
+    "linkedin.com/in/anton-krasov"
+  ],
+  "skills": [
+    "Android",
+    "Flutter",
+    "Android NDK",
+    "REST",
+    "Git",
+    "Firebase"
+  ],
+  "description": "Android and Flutter developer with 9 years of engineering experience and product management skills. Contributed to multiple open-source projects and libraries. Worked closely with product and design teams of successful startups to develop new ideas and explore new opportunities, diving\ninto user experience analysis. Valued for a high speed that comes with experience.",
+  "sections": [
+    {
+      "title": "Employment History",
+      "icon": "work",
+      "items": [
+        {
+          "title": "Consultant at Wysefit.com",
+          "description": "Helped fitness tech startup to determine a product-market fit and develop a mobile app in 2 weeks. Built a competitive product with video streaming, subscription system, chat, and authentication features. Tech Stack: Flutter, Firebase, and mux.com.\n\nApp: https://apps.apple.com/app/id1479230988",
+          "start_date": "September 2019",
+          "end_date": "November 2019"
+        },
+        {
+          "title": "Mobile Tech Lead at Streamlabs.com",
+          "description": "As one of the early employees had to solve a core business challenge of building a competitive live-streaming app. Developed a technology that granted streamers an opportunity to display webpage links during the stream, which is a core system for all Streamers widgets.\n\nApp: https://play.google.com/store/apps/details?id=com.streamlabs\n\nBuilt a Streamlabs’ side project DibDab: a TikTok clone with Twitch\nclips. Created a video streaming solution, caching and complex\nUI: https://apkpure.com/dibdab-top-clips-from-twitch/com.dibdab (the project was closed, so the app was removed from Google Play). Streamlabs was acquired by Logitech for $89M.",
+          "start_date": "March 2017",
+          "end_date": "September 2019"
+        },
+        {
+          "title": "Mobile Tech Lead at Fotostrana.ru",
+          "description": "Managed a team of 3 developers to build a successful dating app with 5M downloads.\n\nApp:\nhttps://play.google.com/store/apps/details?id=ru.fotostrana.sweetmeet",
+          "start_date": "October 2016",
+          "end_date": "March 2017"
+        },
+        {
+          "title": "Android Developer at MyTime.com",
+          "description": "Fully ported iOS consumer app to Android. Then developed a complex B2B app with a fully custom calendar feature. Got lots of experience with Offline first apps and backend data sync.\n\nApp:\nhttps://play.google.com/store/apps/details?id=com.melianlabs.mytimescheduler",
+          "start_date": "May 2014",
+          "end_date": "October 2016"
+        },
+        {
+          "title": "Android Developer at Attendify.com",
+          "description": "This is an events app builder, a great project where we had to build UI fully on the fly. Learned a lot about RxJava in this project. We had a team of only 2 developers and we built a full Android side from scratch.\n\nApps: https://play.google.com/store/apps/developer?id=KitApps,+Inc.",
+          "start_date": "November 2013",
+          "end_date": "May 2014"
+        },
+        {
+          "title": "Android Developer at NcryptedCloud.com",
+          "description": "Worked a lot with native code and different encryption libraries. Learned about cryptography, corporate sales, and support.",
+          "start_date": "February 2013",
+          "end_date": "November 2013"
+        },
+        {
+          "title": "Android Developer at Softevol.com",
+          "description": "Built multiple apps as an outsourcing studio, including dating, VPN, and educational projects. Developed a ViewPager view by myself before it was created by Google for this project:\nhttps://www.amazon.ca/softevol-amoeba/dp/B007N5AA3W.",
+          "start_date": "February 2010",
+          "end_date": "February 2013"
+        }
+      ]
+    },
+    {
+      "title": "Education",
+      "icon": "education",
+      "items": [
+        {
+          "title": "Computer Science, Donetsk National Technical University"
+        }
+      ]
+    },
+    {
+      "title": "Open Source Libraries",
+      "items": [
+        {
+          "title": "AndroidSocialNetworks",
+          "description": "Library for easy work with Facebook, Twitter, LinkedIn and Google on Android\n\nhttps://github.com/antonkrasov/AndroidSocialNetworks"
+        },
+        {
+          "title": "AndroidProgressLayout",
+          "description": "Android View to simplify working with ProgressBar\n\nhttps://github.com/antonkrasov/AndroidProgressLayout"
+        }
+      ]
+    },
+    {
+      "title": "Blog Posts",
+      "items": [
+        {
+          "title": "Performance Problems in Libraries and SDKs",
+          "description": "https://blog.nimbledroid.com/2016/04/25/problems-with-libraries-and-sdks.html"
+        },
+        {
+          "title": "Why Is ClassLoader.getResourceAsStream So Slow in Android?",
+          "description": "https://blog.nimbledroid.com/2016/04/06/slow-ClassLoader.getResourceAsStream.html"
+        },
+        {
+          "title": "Five Lesser-Known Ways to Hang Your Main Thread",
+          "description": "https://blog.nimbledroid.com/2016/03/21/ways-to-hang-main-thread.html"
+        },
+        {
+          "title": "Comparing the Performance of Dependency Injection Libraries",
+          "description": "https://blog.nimbledroid.com/2016/03/07/performance-of-dependency-injection-libraries.html"
+        },
+        {
+          "title": "How Slow is Reflection in Android?",
+          "description": "https://blog.nimbledroid.com/2016/02/23/slow-Android-reflection.html"
+        }
+      ]
+    }
+  ]
+}

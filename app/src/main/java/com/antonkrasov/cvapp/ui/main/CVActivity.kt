@@ -1,17 +1,19 @@
-package com.antonkrasov.cvapp
+package com.antonkrasov.cvapp.ui.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.antonkrasov.cvapp.ui.main.MainFragment
+import androidx.appcompat.app.AppCompatActivity
+import com.antonkrasov.cvapp.R
 
-class MainActivity : AppCompatActivity() {
+class CVActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.main_activity)
+
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, MainFragment.newInstance())
+                .replace(R.id.container, CVFragment.newInstance())
                 .commitNow()
         }
     }
