@@ -1,6 +1,6 @@
 {
   "title": "Anton Krasov",
-  "subtitle": "Android & Flutter Developer",
+  "subtitle": "Android & Flutter Developer\nLocal Source",
   "details": {
     "location": "Vancouver, Canada",
     "phone": "778-000-0000",
@@ -115,5 +115,6 @@
         }
       ]
     }
-  ]
+  ],
+  "last_update": 1580589327
 }

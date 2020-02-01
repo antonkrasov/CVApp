@@ -14,7 +14,7 @@ class CVRemoteDataStoreImpl(cvApiService: CVApiService) : CVRemoteDataStore {
     override fun getCV(): Flowable<CV> {
         return _cvApiService.getCV(CV_PATH)
             .toFlowable()
-            .delay(3, TimeUnit.SECONDS)
+//            .delay(3, TimeUnit.SECONDS) // Just for tests
     }
 
 }

@@ -9,7 +9,8 @@ data class CV(
     @SerializedName("description") val description: String?,
     @SerializedName("links") val links: Array<String>?,
     @SerializedName("skills") val skills: Array<String>?,
-    @SerializedName("sections") val sections: Array<Section>?
+    @SerializedName("sections") val sections: Array<Section>?,
+    @SerializedName("last_update") val lastUpdate: Long?
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -17,36 +18,15 @@ data class CV(
 
         other as CV
 
-        if (title != other.title) return false
-        if (subtitle != other.subtitle) return false
-        if (details != other.details) return false
-        if (description != other.description) return false
-        if (links != null) {
-            if (other.links == null) return false
-            if (!links.contentEquals(other.links)) return false
-        } else if (other.links != null) return false
-        if (skills != null) {
-            if (other.skills == null) return false
-            if (!skills.contentEquals(other.skills)) return false
-        } else if (other.skills != null) return false
-        if (sections != null) {
-            if (other.sections == null) return false
-            if (!sections.contentEquals(other.sections)) return false
-        } else if (other.sections != null) return false
+        if (lastUpdate != other.lastUpdate) return false
 
         return true
     }
 
     override fun hashCode(): Int {
-        var result = title?.hashCode() ?: 0
-        result = 31 * result + (subtitle?.hashCode() ?: 0)
-        result = 31 * result + (details?.hashCode() ?: 0)
-        result = 31 * result + (description?.hashCode() ?: 0)
-        result = 31 * result + (links?.contentHashCode() ?: 0)
-        result = 31 * result + (skills?.contentHashCode() ?: 0)
-        result = 31 * result + (sections?.contentHashCode() ?: 0)
-        return result
+        return lastUpdate?.hashCode() ?: 0
     }
+
 }
 
 data class Details(
