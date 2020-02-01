@@ -12,6 +12,10 @@ class CVViewModel @Inject constructor(
     cvRepository: CVRepository
 ) : ViewModel() {
 
+    // Yes, we can return something like Result<CV> and display loading status,
+    // but I think reading a file or asset is just fast enough and this loader will
+    // just be annoying...
+    // TODO: But we should still display some errors...
     private val _cv = MutableLiveData<CV>()
     val cv: LiveData<CV> = _cv
 

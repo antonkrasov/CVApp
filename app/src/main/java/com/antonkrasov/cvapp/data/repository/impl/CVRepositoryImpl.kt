@@ -22,10 +22,16 @@ class CVRepositoryImpl(
     private val _cvSubject: BehaviorSubject<CV> = BehaviorSubject.create()
 
     init {
-        val localCVDisable = localDataStore.getCV().subscribe { cv: CV ->
-            Timber.i("We got local CV(%d)", cv.lastUpdate)
-            _cvSubject.onNext(cv)
-        }
+        val localCVDisable = localDataStore.getCV().subscribe(
+            { cv: CV ->
+                Timber.i("We got local CV(%d)", cv.lastUpdate)
+                _cvSubject.onNext(cv)
+            },
+            {
+                Timber.e(it)
+                //TODO: Propagate error into UI
+            }
+        )
 
         val removeCVDisposable = remoteDataStore.getCV()
             .doOnNext { cv: CV ->
@@ -44,10 +50,16 @@ class CVRepositoryImpl(
             }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe { cv: CV ->
-                Timber.i("Emit Remote CV(%d)", cv.lastUpdate)
-                _cvSubject.onNext(cv)
-            }
+            .subscribe(
+                { cv: CV ->
+                    Timber.i("Emit Remote CV(%d)", cv.lastUpdate)
+                    _cvSubject.onNext(cv)
+                },
+                {
+                    Timber.e(it)
+                    //TODO: Propagate error into UI
+                }
+            )
 
         compositeDisposable.add(localCVDisable)
         compositeDisposable.add(removeCVDisposable)
