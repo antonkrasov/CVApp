@@ -6,6 +6,7 @@ import com.antonkrasov.cvapp.data.datastore.CVLocalDataStore
 import com.antonkrasov.cvapp.data.model.CV
 import com.antonkrasov.cvapp.data.storage.AssetsStorage
 import com.antonkrasov.cvapp.data.storage.FilesStorage
+import com.antonkrasov.cvapp.utils.isMainThread
 import com.google.gson.Gson
 import io.reactivex.Flowable
 import java.io.File
@@ -42,11 +43,9 @@ class CVLocalDataStoreImpl(
             }
     }
 
-    /**
-     * Should be called from another thread...
-     * Maybe should be Flowable?
-     */
     override fun saveCV(cv: CV) {
+        check(isMainThread().not()) { "Shouldn't be called from the Main thread" }
+
         val jsonString = _gson.toJson(cv)
         _filesStorage.writeStringIntoFile(_cvLocalFile.absolutePath, jsonString)
     }
