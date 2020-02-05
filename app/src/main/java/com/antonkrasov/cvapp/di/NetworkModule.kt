@@ -2,7 +2,7 @@ package com.antonkrasov.cvapp.di
 
 import com.antonkrasov.cvapp.BuildConfig
 import com.antonkrasov.cvapp.CV_API_BASE_URL
-import com.antonkrasov.cvapp.data.CVApiService
+import com.antonkrasov.cvapp.data.api.CVApiService
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides

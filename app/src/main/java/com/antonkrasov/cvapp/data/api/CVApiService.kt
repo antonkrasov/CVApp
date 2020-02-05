@@ -1,4 +1,4 @@
-package com.antonkrasov.cvapp.data
+package com.antonkrasov.cvapp.data.api
 
 import com.antonkrasov.cvapp.data.model.CV
 import io.reactivex.Single

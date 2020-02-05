@@ -1,12 +1,16 @@
 package com.antonkrasov.cvapp.data.datastore
 
+import com.antonkrasov.cvapp.data.CVProvider
 import com.antonkrasov.cvapp.data.model.CV
-import io.reactivex.Flowable
 
-interface CVLocalDataStore {
+/**
+ * CV Data Store, which works with the local file system
+ */
+interface CVLocalDataStore : CVProvider {
 
-    fun getCV(): Flowable<CV>
-
+    /**
+     * Save CV to a local cache
+     */
     fun saveCV(cv: CV)
 
 }

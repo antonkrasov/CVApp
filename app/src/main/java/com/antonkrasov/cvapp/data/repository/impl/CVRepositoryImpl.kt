@@ -1,8 +1,8 @@
 package com.antonkrasov.cvapp.data.repository.impl
 
-import com.antonkrasov.cvapp.data.model.CV
 import com.antonkrasov.cvapp.data.datastore.CVLocalDataStore
 import com.antonkrasov.cvapp.data.datastore.CVRemoteDataStore
+import com.antonkrasov.cvapp.data.model.CV
 import com.antonkrasov.cvapp.data.repository.CVRepository
 import io.reactivex.BackpressureStrategy
 import io.reactivex.Flowable
@@ -29,14 +29,14 @@ class CVRepositoryImpl(
             },
             {
                 Timber.e(it)
-                //TODO: Propagate error into UI
+                _cvSubject.onError(it)
             }
         )
 
         val removeCVDisposable = remoteDataStore.getCV()
             .doOnNext { cv: CV ->
                 Timber.i("We got remote CV(%d)", cv.lastUpdate)
-                val currentCV = _cvSubject.value
+                val currentCV = if (_cvSubject.hasValue()) _cvSubject.value else null
 
                 // there is not need to save CV, if we have the same version...
                 if (currentCV != cv) {
@@ -45,7 +45,7 @@ class CVRepositoryImpl(
                 }
             } // let's emit next item only if we have new CV
             .filter { cv: CV ->
-                val currentCV = _cvSubject.value
+                val currentCV = if (_cvSubject.hasValue()) _cvSubject.value else null
                 currentCV != cv
             }
             .subscribeOn(Schedulers.io())
@@ -57,7 +57,7 @@ class CVRepositoryImpl(
                 },
                 {
                     Timber.e(it)
-                    //TODO: Propagate error into UI
+                    _cvSubject.onError(it)
                 }
             )
 

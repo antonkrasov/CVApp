@@ -1,10 +1,8 @@
 package com.antonkrasov.cvapp.data.datastore
 
-import com.antonkrasov.cvapp.data.model.CV
-import io.reactivex.Flowable
+import com.antonkrasov.cvapp.data.CVProvider
 
-interface CVRemoteDataStore {
-
-    fun getCV(): Flowable<CV>
-
-}
+/**
+ * CV Data Store, which works with the remote sources
+ */
+interface CVRemoteDataStore : CVProvider

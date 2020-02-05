@@ -1,10 +1,8 @@
 package com.antonkrasov.cvapp.data.repository
 
-import com.antonkrasov.cvapp.data.model.CV
-import io.reactivex.Flowable
+import com.antonkrasov.cvapp.data.CVProvider
 
-interface CVRepository {
-
-    fun getCV(): Flowable<CV>
-
-}
+/**
+ * Our CV Repository, once you need a CV instance, it's here
+ */
+interface CVRepository : CVProvider
