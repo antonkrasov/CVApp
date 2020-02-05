@@ -29,7 +29,6 @@ class CVRepositoryImpl(
             },
             {
                 Timber.e(it)
-                _cvSubject.onError(it)
             }
         )
 
@@ -57,7 +56,8 @@ class CVRepositoryImpl(
                 },
                 {
                     Timber.e(it)
-                    _cvSubject.onError(it)
+                    if (_cvSubject.hasValue().not())
+                        _cvSubject.onError(it)
                 }
             )
 
