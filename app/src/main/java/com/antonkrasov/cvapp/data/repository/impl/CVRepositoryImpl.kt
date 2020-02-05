@@ -4,18 +4,18 @@ import com.antonkrasov.cvapp.data.datastore.CVLocalDataStore
 import com.antonkrasov.cvapp.data.datastore.CVRemoteDataStore
 import com.antonkrasov.cvapp.data.model.CV
 import com.antonkrasov.cvapp.data.repository.CVRepository
+import com.antonkrasov.cvapp.threading.BaseSchedulerProvider
 import io.reactivex.BackpressureStrategy
 import io.reactivex.Flowable
-import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.BehaviorSubject
 import timber.log.Timber
 
 class CVRepositoryImpl(
     localDataStore: CVLocalDataStore,
     remoteDataStore: CVRemoteDataStore,
-    compositeDisposable: CompositeDisposable
+    compositeDisposable: CompositeDisposable,
+    schedulerProvider: BaseSchedulerProvider
 ) :
     CVRepository {
 
@@ -47,8 +47,8 @@ class CVRepositoryImpl(
                 val currentCV = if (_cvSubject.hasValue()) _cvSubject.value else null
                 currentCV != cv
             }
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(schedulerProvider.io())
+            .observeOn(schedulerProvider.ui())
             .subscribe(
                 { cv: CV ->
                     Timber.i("Emit Remote CV(%d)", cv.lastUpdate)

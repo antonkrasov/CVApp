@@ -6,7 +6,8 @@ import dagger.Module
     includes = [
         DataModule::class,
         NetworkModule::class,
-        StorageModule::class
+        StorageModule::class,
+        ThreadingModule::class
     ]
 )
 object ApplicationModule

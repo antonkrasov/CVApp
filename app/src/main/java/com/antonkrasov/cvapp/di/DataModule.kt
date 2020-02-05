@@ -10,6 +10,7 @@ import com.antonkrasov.cvapp.data.repository.CVRepository
 import com.antonkrasov.cvapp.data.repository.impl.CVRepositoryImpl
 import com.antonkrasov.cvapp.data.storage.AssetsStorage
 import com.antonkrasov.cvapp.data.storage.FilesStorage
+import com.antonkrasov.cvapp.threading.BaseSchedulerProvider
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
@@ -51,9 +52,15 @@ object DataModule {
     fun provideCVRepository(
         cvLocalDataStore: CVLocalDataStore,
         cvRemoteDataStore: CVRemoteDataStore,
-        compositeDisposable: CompositeDisposable
+        compositeDisposable: CompositeDisposable,
+        schedulerProvider: BaseSchedulerProvider
     ): CVRepository {
-        return CVRepositoryImpl(cvLocalDataStore, cvRemoteDataStore, compositeDisposable)
+        return CVRepositoryImpl(
+            cvLocalDataStore,
+            cvRemoteDataStore,
+            compositeDisposable,
+            schedulerProvider
+        )
     }
 
     @JvmStatic
